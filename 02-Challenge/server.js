@@ -34,7 +34,20 @@ app.get('/api/notes', (req, res) => {
 
 // need to make option to post
 
+app.post('/api/notes', (req, res) => {
+  
+    const noteCreate = JSON.stringify(req.body);
+  
+        const name = "./db/db.json";
+        const pastFile = fs.readFileSync(name);
+        const pastData = JSON.parse(pastFile);
+        const presentData = [...pastData, req.body];
+  
+    fs.writeFileSync('./db/db.json', JSON.stringify(presentData));
+  
+res.json(noteCreate) });
 
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
 
 
