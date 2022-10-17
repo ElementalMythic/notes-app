@@ -28,6 +28,7 @@ app.get('/api/notes', (req, res) => {
         const file = fs.readFileSync(path);
             const fileData = file.toString();
                 let jsonResponse = JSON.parse(fileData);
+                    res.json(jsonResponse);
 });
 
 // need to make notes
@@ -41,6 +42,7 @@ app.post('/api/notes', (req, res) => {
         const name = "./db/db.json";
         const pastFile = fs.readFileSync(name);
         const pastData = JSON.parse(pastFile);
+        require.body.id = uuid();
         const presentData = [...pastData, req.body];
   
     fs.writeFileSync('./db/db.json', JSON.stringify(presentData));
