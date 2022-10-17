@@ -23,9 +23,18 @@ app.use(express.json());
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
 app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
 
+app.get('/api/notes', (req, res) => {
+    const path = './db/db.json';
+        const file = fs.readFileSync(path);
+            const fileData = file.toString();
+                let jsonResponse = JSON.parse(fileData);
+});
+
 // need to make notes
 
 // need to make option to post
+
+
 
 
 
