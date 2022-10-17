@@ -10,9 +10,13 @@ const PORT = 3001;
 
 // app.use for develop folder
 
-app.use (express.static('develop'));
+// app.use (express.static('develop'));
 
 // express needs to handle the data parsing 
+
+app.use(express.static('public'));
+app.use(express.urlencoded({extended : true}));
+app.use(express.json());
 
 // need to make routes 
 
