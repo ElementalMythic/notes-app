@@ -20,6 +20,9 @@ app.use(express.json());
 
 // need to make routes 
 
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public/index.html')));
+app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
+
 // need to make notes
 
 // need to make option to post
