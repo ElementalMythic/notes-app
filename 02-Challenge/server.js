@@ -47,6 +47,8 @@ app.post('/api/notes', (req, res) => {
   
 res.json(noteCreate) });
 
+app.get('*', req, res => {res.sendFile(path.join (__dirname, 'html/index.htm'))})
+
 app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
 
 
